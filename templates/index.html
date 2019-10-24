@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %}
+{{ super() }}
+Libros {% endblock %} {% block main %}
+<div class="centrar">
+<div class="formulario">
+
+    <h1 class="title">Consulta el título que tu quieras: </h1>
+  <form action="/" method="POST">
+    <input class="input is-rounded" type="text" name="libro" required autofocus/> <br><br><br><br>
+    <button class="button is-info" type="submit">Consultar</button>
+  </form>
+
+{% if libros != None and libros|length > 0  %}
+  <form action="/" method="POST">
+
+    <ul>
+    {% for i in range(libros|length) %}
+
+      <li><input type="checkbox" name="elegido" value="{{ libros[i][1] }}">{{ libros[i][1] }}</li>
+
+    {% endfor %}
+    </ul>
+    <button class="button is-info" type="submit">Buscar</button>
+
+  </form>
+{% endif %}
+  <br /><br/>
+  {% if elegido != null %}
+  <h1>Libro: {{ titulo }}</h1>
+  <h2>Autor: {{ autor }}</h2>
+  <h2>Año de salida: {{ año }}</h2>
+  <h2>Precio: {{ precio }}€</h2>
+  {% endif %}
+</div>
+</div>
+{% endblock %}

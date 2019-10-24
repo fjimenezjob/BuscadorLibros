@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(173, 173, 173);
+    height: 100vh;
+}
+.formulario{
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.centrar{
+    text-align: center;
+}
+.check{
+    display: inline;
+
+}
