@@ -18,6 +18,10 @@ def buscar(libro):
     ''')
     
     datos = cursor.fetchall()
+
+    if datos == ():
+        datos = None
+
     conexion.commit()
     conexion.close()
     return datos

@@ -10,7 +10,16 @@ def home():
     if request.method == 'POST':
         consulta = request.form.get('libro')
         libros = buscar(consulta)
+        print(libros)
         elegido = request.form.get('elegido')
+        print (elegido)
+
+        if libros == None and elegido == None:
+            error = 'No tenemos este libro, pero gracias por confiar en nosotros... :)'
+            context = {
+                'error' : error
+            }
+            return render_template('index.html', **context)
 
         if elegido is not None:
             elegido = buscar(elegido)
