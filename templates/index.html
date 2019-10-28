@@ -20,29 +20,22 @@ Libros {% endblock %} {% block main %}
 
     <h1>{{ error }}</h1>
 
-    {% endif %} 
+    {% endif %}
+
     {% if libros != None and libros|length > 0 %}
+    
     <form action="/" method="POST">
       <ul>
         {% for i in range(libros|length) %}
-
-        <li>
-          <input type="checkbox" name="elegido" value="{{ libros[i][1] }}" />{{
-            libros[i][1]
-          }}
-        </li>
+          <h1>Libro: {{ libros[i][0] }}</h1>
+          <h2>Autor: {{ libros[i][1] }}</h2>
+          <h2>Año de salida: {{ libros[i][3] }}</h2>
+          <h2>Precio: {{ libros[i][2] }}€</h2><br>
+          <h3>*****************************************</h3><br>
 
         {% endfor %}
       </ul>
-      <button class="button is-info" type="submit">Buscar</button>
     </form>
-    {% endif %}
-    <br /><br />
-    {% if elegido != null %}
-    <h1>Libro: {{ titulo }}</h1>
-    <h2>Autor: {{ autor }}</h2>
-    <h2>Año de salida: {{ año }}</h2>
-    <h2>Precio: {{ precio }}€</h2>
     {% endif %}
   </div>
 </div>
