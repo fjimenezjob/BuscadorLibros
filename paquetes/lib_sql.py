@@ -4,7 +4,7 @@ import pymysql
 def buscar(libro):
 
     conexion = pymysql.connect(
-        'localhost', 'fran', 'Hello1234', 'libreriatoni')
+        'localhost', 'root', 'root', 'libreria')
 
     cursor = conexion.cursor()
 
@@ -24,4 +24,5 @@ def buscar(libro):
 
     conexion.commit()
     conexion.close()
+    print(datos[0])
     return datos
